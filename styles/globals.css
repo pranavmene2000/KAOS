@@ -1,0 +1,281 @@
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.app_container {
+	display: block;
+	margin: 0 auto;
+	max-width: 450px;
+	border: 1px solid lightgray;
+	height: 100vh;
+	overflow-y: auto;
+	padding: 55px 20px;
+}
+
+.app_container::-webkit-scrollbar {
+	width: 0.4em;
+}
+
+.app_container::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 6px rgba(180, 180, 180, 0.3);
+}
+
+.app_container::-webkit-scrollbar-thumb {
+	background-color: rgb(214, 214, 214);
+  border-radius: 50px;
+}
+
+.app_header {
+	font-size: 24px;
+	font-weight: bolder;
+}
+
+.app_sub_header {
+	font-size: 18px;
+	font-weight: bolder;
+}
+
+.app_navbar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.app_nav {
+	border: 2px solid #1d1d1f;
+	border-radius: 16px;
+	padding: 0;
+	margin-top: 15px;
+}
+
+.app_nav > div {
+	padding: 0;
+}
+
+.app_navbar_item {
+	color: black !important;
+}
+
+.app_navbar_item > * {
+	border-radius: 16px !important;
+	margin-top: 0.15px;
+	font-size: 14px !important;
+	font-weight: bold;
+	padding: 15px 20px;
+}
+
+.app_navbar_item .active {
+	background-color: #f3c522 !important;
+}
+
+.app_nav_link {
+	color: black !important;
+}
+
+.form {
+	padding: 30px 0 0 0;
+}
+
+.form .name_input_wrapper {
+	padding-bottom: 20px;
+}
+
+.form label,
+.form label {
+	font-size: 14px;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+.form .name_input_wrapper input,
+.form .IFSC_input_wrapper input {
+	width: 100%;
+	border: 2px solid black;
+	border-radius: 16px;
+	padding: 10px 15px;
+	font-size: 15px;
+	color: #7a7d84;
+	font-weight: 600;
+}
+
+.form > * > * {
+	display: block;
+}
+
+.IFSC_input_div {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.IFSC_input_div input {
+	flex: 0.97;
+}
+
+.IFSC_input_div div svg {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.IFSC_input_div div {
+	padding: 15px;
+	background-color: black;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	position: relative;
+	cursor: pointer;
+}
+
+.IFSC_input_div input {
+	margin-bottom: 5px;
+}
+
+.add_IFSC_code {
+	background-color: black;
+	padding: 8px 20px;
+	color: white;
+	border-radius: 12px;
+	font-weight: 700;
+	font-size: 12px;
+	border: 0;
+	outline: none;
+	margin-bottom: 15px;
+	margin-top: 5px;
+}
+
+.submit_button {
+	background-color: black;
+	padding: 10px 20px;
+	color: white;
+	border-radius: 12px;
+	font-weight: 700;
+	font-size: 18px;
+	margin-top: 10px;
+	border: 0;
+	outline: none;
+}
+
+.submission {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin-bottom: 7px;
+}
+
+/* .submission > *:last-child {
+	flex: 0.85;
+} */
+
+.submission_user_avater_container {
+	width: 45px;
+	height: 45px;
+	background-color: #e5e5e5;
+	color: black;
+	position: relative;
+	border: 2px solid #ffffff;
+	border-radius: 50%;
+}
+
+.submission_user_avater_container span {
+	position: absolute;
+	font-weight: bolder;
+	font-size: 14px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.submission_user {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.submission_user_wrapper {
+	padding: 2.5px;
+	border: 2px solid orangered;
+	border-radius: 50%;
+}
+
+.submission_user p {
+	font-size: 14px;
+	display: block;
+	padding-top: 5px;
+	width: 60px;
+	text-align: center;
+}
+
+.submission_cards {
+	display: flex;
+	flex-direction: column;
+	flex: 0.85;
+}
+
+.submission_card {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 6px 13px;
+	background: #fafafc;
+	border: 2px solid #1d1d1f;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 0px #000000;
+	border-radius: 16px;
+	margin-bottom: 15px;
+}
+
+.submission_card_left,
+.submission_card_right {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	padding: 0px;
+}
+
+.submission_card_left > *:first-child {
+	padding: 0;
+	margin: 0;
+	font-weight: bolder;
+	font-size: 18px;
+	color: #1d1d1f;
+}
+
+.submission_card_left > *:last-child {
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
+	color: #7a7d84;
+	padding-top: 10px;
+}
+
+.submission_card_right h1 {
+	font-weight: 700;
+	font-size: 35px;
+	margin: 0;
+}
+
+.submission_card_right p {
+	padding: 0;
+	margin: 0;
+	font-size: 13px;
+	font-weight: 700;
+	color: #7a7d84;
+}
