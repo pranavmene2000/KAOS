@@ -37,7 +37,7 @@ const client = new ApolloClient({
 });
 
 export default function IndexPage() {
-	const [page, setPage] = useState("feed");
+	const [page, setPage] = useState("form");
 	return (
 		<ApolloProvider client={client}>
 			<Header />
