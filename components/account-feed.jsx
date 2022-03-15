@@ -1,11 +1,10 @@
 import React from "react";
 
 const AccountFeed = () => {
-	console.log(accnts);
 	return (
 		<div className='form'>
-			{accnts &&
-				accnts.map((acc, index) => {
+			{accounts &&
+				accounts.map((acc, index) => {
 					return (
 						<div className='submission' key={index}>
 							<div className='submission_user'>
@@ -18,19 +17,26 @@ const AccountFeed = () => {
 							</div>
 							<div className='submission_cards'>
 								{acc &&
-									acc.accns?.map((a, index) => {
+									acc?.banks?.map((bank, index) => {
 										return (
 											<div key={index} className='submission_card'>
 												<div className='submission_card_left'>
-													<h3>City One</h3>
-													<p>Clean Kisses</p>
+													<h3>
+														{bank["meta"]["city"].charAt(0).toUpperCase() +
+															bank["meta"]["branch"].slice(1)}
+													</h3>
+													<p>{bank["meta"]["branch"]}</p>
 												</div>
 												<div className='submission_card_right'>
-													<h1>
-														24<sup> °</sup>
+													<h1 className="text-center">
+														{bank["meta"]["weather"]["current"]["temperature"]}
+														<sup> °</sup>
 													</h1>
 													<p>
-														H: 27<sup> °</sup> | L: 21<sup> °</sup>
+														H: {bank["meta"]["weather"]["tomorrow"]["max"]}
+														<sup> °</sup> | L:{" "}
+														{bank["meta"]["weather"]["tomorrow"]["min"]}
+														<sup> °</sup>
 													</p>
 												</div>
 											</div>
