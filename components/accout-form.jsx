@@ -98,17 +98,17 @@ const AccountForm = () => {
 									>
 										Add IFSC
 									</button>
-									<button
-										disabled={loading}
-										className='submit_button'
-										type='submit'
-									>
-										{loading && !data ? (
-											<span>Submitting...</span>
-										) : (
-											<span>Submit</span>
-										)}
-									</button>
+									{loading ? (
+										<button
+											disabled={loading}
+											className='submit_button'
+											type='submit'
+										>
+											Submitting
+										</button>
+									) : (
+										<button className='submit_button'>Submit</button>
+									)}
 								</div>
 							)}
 						/>
