@@ -35,6 +35,18 @@ const AccountFeed = () => {
 	});
 	console.log(data && data?.accounts);
 
+	if (error) {
+		return (
+			<p className='mt-5 text-muted text-center text-md'>
+				Something went wrong while fetching submissions
+			</p>
+		);
+	}
+
+	if (loading) {
+		return <p className='mt-5 text-muted text-center text-md'>Loading...</p>;
+	}
+
 	return (
 		<div className='form'>
 			{data?.accounts?.length !== 0 ? (

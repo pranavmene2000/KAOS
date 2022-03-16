@@ -12,6 +12,14 @@ const AccountForm = () => {
 	const [CreateAccount, { data, error, loading }] = useMutation(CREATE_ACCOUNT);
 	console.log(data);
 
+	if (error) {
+		return (
+			<p className='mt-5 text-muted text-center text-md'>
+				Something went wrong while creating account
+			</p>
+		);
+	}
+
 	return (
 		<React.Fragment>
 			<Formik
@@ -90,8 +98,16 @@ const AccountForm = () => {
 									>
 										Add IFSC
 									</button>
-									<button className='submit_button' type='submit'>
-										Submit
+									<button
+										disabled={loading}
+										className='submit_button'
+										type='submit'
+									>
+										{loading && !data ? (
+											<span>Submitting...</span>
+										) : (
+											<span>Submit</span>
+										)}
 									</button>
 								</div>
 							)}
