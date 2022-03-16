@@ -24,15 +24,15 @@ const AccountForm = () => {
 		<React.Fragment>
 			<Formik
 				initialValues={{ name: "", ifscs: [""] }}
-				onSubmit={({ name, ifscs }, helpers) => {
+				onSubmit={async ({ name, ifscs }, helpers) => {
 					console.log({ name, ifscs });
-					helpers.resetForm();
-					CreateAccount({
+					await CreateAccount({
 						variables: {
 							name,
 							ifscs,
 						},
 					});
+					helpers.resetForm();
 				}}
 			>
 				{({ values, handleChange, handleSubmit }) => (
