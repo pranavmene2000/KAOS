@@ -98,16 +98,37 @@ const AccountForm = () => {
 									>
 										Add IFSC
 									</button>
-									{loading ? (
+									{!!loading ? (
 										<button
-											disabled={loading}
-											className='submit_button'
+											disabled={!!loading}
+											className='bg-light border border-secondary text-black submit_button'
 											type='submit'
 										>
-											Submitting
+											Submitting..
 										</button>
 									) : (
-										<button className='submit_button'>Submit</button>
+										<button
+											disabled={
+												values.name === "" ||
+												values.ifscs.some((ifsc) => ifsc === "")
+											}
+											className={`${
+												values.name === "" ||
+												values.ifscs.some((ifsc) => ifsc === "")
+													? "bg-light border border-secondary text-black"
+													: ""
+											} submit_button`}
+											style={{
+												cursor: "pointer",
+												cursor:
+													values.name === "" ||
+													values.ifscs.some((ifsc) => ifsc === "")
+														? "auto"
+														: "pointer",
+											}}
+										>
+											Submit
+										</button>
 									)}
 								</div>
 							)}
