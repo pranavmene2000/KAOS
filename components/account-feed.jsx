@@ -1,30 +1,51 @@
 import React from "react";
-import BankCard from "./bank-card";
+import { useQuery, gql } from "@apollo/client";
+import AccountCard from "./account-card";
+
+const GET_ACCOUNTS = gql`
+	query Accounts {
+		accounts {
+			id
+			name
+			banks {
+				ifsc
+				meta {
+					name
+					branch
+					city
+					weather {
+						current {
+							temperature
+							comment
+						}
+						tomorrow {
+							min
+							max
+						}
+					}
+				}
+			}
+		}
+	}
+`;
 
 const AccountFeed = () => {
+	const { data, error, loading } = useQuery(GET_ACCOUNTS, {
+		fetchPolicy: "no-cache",
+	});
+	console.log(data && data?.accounts);
+
 	return (
 		<div className='form'>
-			{accounts &&
-				accounts.map((acc, index) => {
-					return (
-						<div className='submission' key={index}>
-							<div className='submission_user'>
-								<div className='submission_user_wrapper'>
-									<div className='submission_user_avater_container'>
-										<span>JD</span>
-									</div>
-								</div>
-								<p>{acc["name"]}</p>
-							</div>
-							<div className='submission_cards'>
-								{acc &&
-									acc?.banks?.map((bank, index) => {
-										return <BankCard key={index} bank={bank} />;
-									})}
-							</div>
-						</div>
-					);
-				})}
+			{data?.accounts?.length !== 0 ? (
+				data?.accounts?.map((account, index) => {
+					return <AccountCard key={index} account={account} />;
+				})
+			) : (
+				<p className='mt-5 text-muted text-center text-md'>
+					No Submissions Available
+				</p>
+			)}
 		</div>
 	);
 };

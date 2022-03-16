@@ -35,7 +35,7 @@ a {
 
 .app_container::-webkit-scrollbar-thumb {
 	background-color: rgb(214, 214, 214);
-  border-radius: 50px;
+	border-radius: 50px;
 }
 
 .app_header {
@@ -266,6 +266,16 @@ a {
 	padding-top: 10px;
 }
 
+.submission_card_left {
+	/* width: fit-content; */
+	flex: 0.65;
+}
+
+.submission_card_right {
+	/* width: fit-content; */
+	flex: calc(1 - 0.65);
+}
+
 .submission_card_right h1 {
 	font-weight: 700;
 	font-size: 35px;
@@ -278,4 +288,5 @@ a {
 	font-size: 13px;
 	font-weight: 700;
 	color: #7a7d84;
+	text-align: center;
 }

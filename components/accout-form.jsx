@@ -1,17 +1,33 @@
+import { useMutation, gql } from "@apollo/client";
 import { FieldArray, Form, Formik } from "formik";
 import React from "react";
 
+const CREATE_ACCOUNT = gql`
+	mutation CreateAccount($name: String!, $ifscs: [String!]!) {
+		create_account(name: $name, ifscs: $ifscs)
+	}
+`;
+
 const AccountForm = () => {
+	const [CreateAccount, { data, error, loading }] = useMutation(CREATE_ACCOUNT);
+	console.log(data);
+
 	return (
 		<React.Fragment>
 			<Formik
 				initialValues={{ name: "", ifscs: [""] }}
-				onSubmit={(values, helpers) => {
-					alert(JSON.stringify(values, null, 2));
-					console.log(values);
+				onSubmit={({ name, ifscs }, helpers) => {
+					console.log({ name, ifscs });
 					helpers.resetForm();
+					CreateAccount({
+						variables: {
+							name,
+							ifscs,
+						},
+					});
 				}}
-				render={({ values, handleChange, handleSubmit }) => (
+			>
+				{({ values, handleChange, handleSubmit }) => (
 					<Form onSubmit={handleSubmit} className='form'>
 						<div className='name_input_wrapper'>
 							<label htmlFor='name'>Name</label>
@@ -82,7 +98,7 @@ const AccountForm = () => {
 						/>
 					</Form>
 				)}
-			/>
+			</Formik>
 		</React.Fragment>
 	);
 };
